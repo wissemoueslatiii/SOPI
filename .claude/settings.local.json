@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm install:*)",
+      "Bash(test:*)",
+      "Bash(ls \"c:\\\\Users\\\\Geothentic inc\\\\Desktop\\\\SOPI\\\\frontend\\\\public\\\\images\"\" 2>/dev/null | head -5 && echo \"---\" && ls \"c:UsersGeothentic incDesktopSOPIfrontendsrccomponents\"\")"
+    ]
+  }
+}
