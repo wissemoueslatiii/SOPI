@@ -84,7 +84,7 @@ useEffect(() => {
   }
 
   return (
-    <div className="pt-24 pb-24 bg-white">
+    <div className="pb-24 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Breadcrumb */}
         <button
@@ -124,7 +124,7 @@ useEffect(() => {
           <div className="lg:col-span-5 space-y-8">
             <div>
               <span className="text-sopi-teal font-bold uppercase tracking-widest text-[10px]">
-                Société Oussema Promotion Immobilière (SOPI)
+                Société Oussema De Promotion Immobilière (SOPI)
               </span>
             </div>
 
@@ -138,7 +138,7 @@ useEffect(() => {
               </div>
 
               <div className="bg-white p-4 rounded-2xl border border-slate-100 shadow-sm">
-                <p className="text-[10px] uppercase font-bold text-slate-400 mb-1">Etage</p>
+                <p className="text-[10px] uppercase font-bold text-slate-400 mb-1">Étage</p>
                 <p className="text-xl font-bold flex items-center gap-2 text-sopi-teal">
                   <ArrowUpDown size={18} />
                   {apartment.etage ?? "—"}
@@ -146,7 +146,7 @@ useEffect(() => {
               </div>
 
               <div className="bg-white p-4 rounded-2xl border border-slate-100 shadow-sm">
-                <p className="text-[10px] uppercase font-bold text-slate-400 mb-1">Type de Lot</p>
+                <p className="text-[10px] uppercase font-bold text-slate-400 mb-1">Type</p>
                 <p className="text-xl font-bold flex items-center gap-2 text-sopi-teal">
                   <Layers size={18} />
                   {apartment.type ?? "—"}
@@ -185,7 +185,7 @@ useEffect(() => {
 
 
 
-            {/* Price Box */}
+            {/* Price Box 
             <div className="bg-sopi-teal rounded-3xl p-8 text-white shadow-2xl shadow-sopi-teal/20 border border-white/10">
               <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-sopi-peach mb-2">
                 A partir de
@@ -212,6 +212,7 @@ useEffect(() => {
               </div>
 
             </div>
+*/}
           </div>
         </div>
       </div>

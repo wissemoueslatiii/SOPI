@@ -4,34 +4,34 @@ import { Phone, Mail, MapPin, Instagram, Facebook } from 'lucide-react';
 
 const Footer: React.FC = () => {
   return (
-    <footer className="bg-sopi-teal text-white pt-14 pb-8">
-      <div className="max-w-7xl mx-auto px-4">
+    <footer className="bg-sopi-teal text-white pt-16 pb-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-10 mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-12 mb-12">
 
           {/* Brand */}
           <div>
-        <Link to="/" className="flex items-center gap-3 mb-4">
-          <img
-            src="https://pucnaybubqtzroujukeb.supabase.co/storage/v1/object/public/apartments/logo.jpg"
-            alt="SOPI - Oussema Promotion Immobilière"
-            className="h-12 w-auto object-contain"
-          />
-        </Link>
+            <Link to="/" className="flex items-center gap-3 mb-5">
+              <img
+                src="https://pucnaybubqtzroujukeb.supabase.co/storage/v1/object/public/apartments/logo.jpg"
+                alt="SOPI - Oussema Promotion Immobilière"
+                className="h-12 w-auto object-contain"
+              />
+            </Link>
 
-            <p className="text-white/70 text-sm leading-relaxed mb-4">
-              Promoteur immobilier indépendant basé à La Marsa.
-              Résidences durables, architecture moderne et engagement contractuel.
+            <p className="text-white/80 text-sm leading-7 mb-5 max-w-sm">
+              Promoteur immobilier à La Marsa.
+              Nous concevons des résidences modernes, durables et pensées pour votre qualité de vie.
             </p>
 
             {/* Social Media */}
-            <div className="flex space-x-3 mb-4">
+            <div className="flex space-x-3 mb-5">
               <a
                 href="https://www.instagram.com/sopi_immobiliere/"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Instagram SOPI"
-                className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-sopi-peach hover:text-sopi-teal transition-all"
+                className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-white/20 transition-all"
               >
                 <Instagram size={18} />
               </a>
@@ -41,25 +41,41 @@ const Footer: React.FC = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Facebook SOPI"
-                className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-sopi-peach hover:text-sopi-teal transition-all"
+                className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-white/20 transition-all"
               >
                 <Facebook size={18} />
               </a>
             </div>
 
-            <p className="text-white/40 text-xs">
-              Société tunisienne indépendante – Depuis 2015
+            <p className="text-white/50 text-xs">
+              Société tunisienne indépendante — Depuis 2017
             </p>
           </div>
 
           {/* Navigation */}
           <div>
-            <h4 className="text-sopi-peach font-bold mb-4">Navigation</h4>
-            <ul className="space-y-3 text-sm text-white/70">
-              <li><Link to="/residence" className="hover:text-sopi-peach">La Résidence</Link></li>
-              <li><Link to="/appartements" className="hover:text-sopi-peach">Stock disponible</Link></li>
-              <li><Link to="/contact" className="hover:text-sopi-peach">Prendre rendez-vous</Link></li>
-              <li><Link to="/#faq" className="hover:text-sopi-peach">FAQ</Link></li>
+            <h4 className="text-sopi-peach font-bold mb-4">Explorer</h4>
+            <ul className="space-y-3 text-sm text-white/80">
+              <li>
+                <Link to="/nosprojets" className="hover:text-white transition-colors">
+                  Projets
+                </Link>
+              </li>
+              <li>
+                <Link to="/appartements" className="hover:text-white transition-colors">
+                  Appartements disponibles
+                </Link>
+              </li>
+              <li>
+                <Link to="/contact" className="hover:text-white transition-colors">
+                  Prendre rendez-vous
+                </Link>
+              </li>
+              <li>
+                <Link to="/#faq" className="hover:text-white transition-colors">
+                  FAQ
+                </Link>
+              </li>
             </ul>
           </div>
 
@@ -67,14 +83,14 @@ const Footer: React.FC = () => {
           <div>
             <h4 className="text-sopi-peach font-bold mb-4">Contact</h4>
 
-            <ul className="space-y-4 text-sm text-white/70 mb-6">
+            <ul className="space-y-4 text-sm text-white/80 mb-6">
               <li className="flex gap-3">
                 <MapPin size={18} className="text-sopi-peach shrink-0 mt-1" />
                 <a
                   href="https://maps.app.goo.gl/k1neeF9x8uWpCQeC8?g_st=ic"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="hover:text-white"
+                  className="hover:text-white transition-colors"
                 >
                   B09, La Perle Bleue, Le Relais<br />La Marsa
                 </a>
@@ -82,33 +98,34 @@ const Footer: React.FC = () => {
 
               <li className="flex gap-3 items-center">
                 <Phone size={18} className="text-sopi-peach shrink-0" />
-                <a href="tel:+21627604160" className="hover:text-white">
+                <a href="tel:+21627604160" className="hover:text-white transition-colors">
                   +216 27 604 160
                 </a>
               </li>
 
               <li className="flex gap-3 items-center">
                 <Mail size={18} className="text-sopi-peach shrink-0" />
-                <a href="mailto:contact@sopi.tn" className="hover:text-white">
+                <a href="mailto:contact@sopi.tn" className="hover:text-white transition-colors">
                   contact@sopi.tn
                 </a>
               </li>
             </ul>
 
+            <Link
+              to="/contact"
+              className="inline-flex items-center rounded-xl bg-white text-sopi-teal px-4 py-2.5 text-sm font-semibold hover:bg-slate-100 transition-colors"
+            >
+              Nous contacter
+            </Link>
           </div>
 
         </div>
 
         {/* Bottom legal */}
-        <div className="border-t border-white/10 pt-6 flex flex-col md:flex-row justify-between text-xs text-white/40 gap-3">
+        <div className="border-t border-white/10 pt-6 flex flex-col md:flex-row justify-between items-start md:items-center text-xs text-white/50 gap-3">
           <p>
-            © 2025 Société Oussema Promotion Immobilière (SOPI). Tous droits réservés.
+            © 2026 SOPI. Tous droits réservés.
           </p>
-          <div className="flex gap-6">
-            <a href="#" className="hover:text-sopi-peach">Mentions légales</a>
-            <a href="#" className="hover:text-sopi-peach">Confidentialité</a>
-            <a href="#" className="hover:text-sopi-peach">Cookies</a>
-          </div>
         </div>
 
       </div>

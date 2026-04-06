@@ -1,7 +1,7 @@
 // Contenu marketing statique SOPI (ne change pas souvent)
 
 export const COMPANY_STATS = {
-  founded: 2015,
+  founded: 2017,
   projectsDelivered: 20,
   satisfiedClients: 1000
 };

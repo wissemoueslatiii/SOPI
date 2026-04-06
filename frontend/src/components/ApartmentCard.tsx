@@ -70,15 +70,16 @@ const ApartmentCard: React.FC<Props> = ({ apartment }) => {
         <div className="flex justify-between items-start mb-4">
           <div>
             <h3 className="text-xl font-serif font-bold text-sopi-teal">
-              Lot {apartment.id}
+              Appartement {apartment.id}
             </h3>
 
             <p className="text-slate-500 text-xs flex items-center gap-1 mt-1">
               <MapPin size={12} className="text-sopi-teal" />
-              Étage {apartment.etage ?? "—"} • {apartment.view ?? "Vue"}
+              Étage {apartment.etage ?? "—"} {/* • {apartment.view ?? "Vue"} */}
             </p>
           </div>
 
+          {/*
           {apartment.price && (
             <div className="text-right">
               <p className="text-[10px] text-slate-400 uppercase font-bold">
@@ -92,6 +93,7 @@ const ApartmentCard: React.FC<Props> = ({ apartment }) => {
               </p>
             </div>
           )}
+          */}
         </div>
 
         <div className="flex items-center gap-6 py-4 border-y border-slate-50 mb-4">

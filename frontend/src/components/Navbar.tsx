@@ -1,123 +1,140 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X, Phone } from 'lucide-react';
-
-const PHONE_NUMBER = '+21627604160';
+import { Menu, X } from 'lucide-react';
 
 const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
 
-useEffect(() => {
-  if (isOpen) {
-    document.body.style.overflow = 'hidden';
-  } else {
-    document.body.style.overflow = '';
-  }
-  return () => {
-    document.body.style.overflow = '';
-  };
-}, [isOpen]);
+  useEffect(() => {
+    document.body.style.overflow = isOpen ? 'hidden' : '';
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [isOpen]);
+
+  useEffect(() => {
+    setIsOpen(false);
+  }, [location.pathname]);
 
   const navLinks = [
-    { name: 'Nos Projets', path: '/nosprojets' },
+    { name: 'Accueil', path: '/' },
+    { name: 'Projets', path: '/nosprojets' },
     { name: 'Appartements', path: '/appartements' },
-    { name: 'Résidence Oussama II', path: '/residence' },
-    { name: 'Contact', path: '/contact' },
   ];
 
-  const isHome = location.pathname === '/';
-  const textColor = !scrolled && isHome ? 'text-white' : 'text-slate-700';
-  const brandTextColor = !scrolled && isHome ? 'text-white' : 'text-sopi-teal';
-  const subTextColor = !scrolled && isHome ? 'text-white/80' : 'text-slate-500';
+  const isActive = (path: string) => {
+    if (path === '/') return location.pathname === '/';
+    return location.pathname.startsWith(path);
+  };
 
   return (
-    <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled ? 'bg-white/95 backdrop-blur-sm shadow-md py-3' : 'bg-transparent py-5'
-      }`}
-    >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center">
-          {/* Brand */}
-          <Link to="/" className="flex items-center gap-3">
-            <div
-              className={`w-12 h-12 rounded-lg flex items-center justify-center ${
-                !scrolled && isHome ? 'bg-white' : 'bg-transparent'
-              }`}
-            >
-              <img
-                src="https://pucnaybubqtzroujukeb.supabase.co/storage/v1/object/public/apartments/logo.jpg"
-                alt="SOPI - Oussema Promotion Immobilière"
-                className="h-10 w-auto object-contain"
-              />
+    <>
+      <nav className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm shadow-sm border-b border-slate-100">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20">
+          <div className="flex h-full items-center justify-between">
+            <Link to="/" className="flex items-center gap-3 shrink-0">
+              <div className="w-12 h-12 rounded-lg flex items-center justify-center bg-transparent">
+                <img
+                  src="https://pucnaybubqtzroujukeb.supabase.co/storage/v1/object/public/apartments/logo.jpg"
+                  alt="SOPI - Oussema Promotion Immobilière"
+                  className="h-10 w-auto object-contain"
+                />
+              </div>
+
+              <div className="flex flex-col">
+                <span className="text-2xl font-serif font-bold tracking-tight leading-none text-sopi-teal">
+                  SOPI
+                </span>
+                <span className="text-[10px] uppercase tracking-tight font-bold text-slate-500">
+                  Société Oussema De Promotion Immobilière
+                </span>
+              </div>
+            </Link>
+
+            <div className="hidden md:flex items-center gap-8">
+              {navLinks.map((link) => {
+                const active = isActive(link.path);
+
+                return (
+                  <Link
+                    key={link.name}
+                    to={link.path}
+                    className={`text-sm font-semibold transition-colors ${
+                      active
+                        ? 'text-sopi-teal'
+                        : 'text-slate-700 hover:text-sopi-teal'
+                    }`}
+                  >
+                    {link.name}
+                  </Link>
+                );
+              })}
+
+              <Link
+                to="/contact"
+                className={`inline-flex items-center rounded-xl px-4 py-2.5 text-sm font-semibold transition-all ${
+                  isActive('/contact')
+                    ? 'bg-sopi-teal-dark text-white'
+                    : 'bg-sopi-teal text-white hover:bg-sopi-teal-dark'
+                }`}
+              >
+                Contact
+              </Link>
             </div>
 
-            <div className="flex flex-col">
-              <span className={`text-2xl font-serif font-bold tracking-tight leading-none ${brandTextColor}`}>
-                SOPI
-              </span>
-              <span className={`text-[8px] uppercase tracking-tighter font-bold ${subTextColor}`}>
-                Oussema Promotion Immobilière
-              </span>
+            <div className="md:hidden">
+              <button
+                onClick={() => setIsOpen((prev) => !prev)}
+                className="inline-flex items-center justify-center rounded-lg p-2 text-slate-900 hover:bg-slate-100 transition-colors"
+                aria-label="Ouvrir le menu"
+                aria-expanded={isOpen}
+              >
+                {isOpen ? <X size={28} /> : <Menu size={28} />}
+              </button>
             </div>
-          </Link>
+          </div>
+        </div>
+      </nav>
 
-          {/* Desktop Menu */}
-          <div className="hidden md:flex items-center space-x-8">
-            {navLinks.map((link) => (
+      {/* Overlay */}
+      {isOpen && (
+        <div
+          className="md:hidden fixed inset-0 z-40 bg-black/30 backdrop-blur-[1px]"
+          onClick={() => setIsOpen(false)}
+        />
+      )}
+
+      {/* Mobile menu panel */}
+      <div
+        className={`md:hidden fixed top-20 left-0 right-0 z-50 bg-white border-b border-slate-200 shadow-lg transition-all duration-300 ${
+          isOpen
+            ? 'opacity-100 translate-y-0 pointer-events-auto'
+            : 'opacity-0 -translate-y-2 pointer-events-none'
+        }`}
+      >
+        <div className="px-6 py-6 space-y-3">
+          {[...navLinks, { name: 'Contact', path: '/contact' }].map((link) => {
+            const active = isActive(link.path);
+
+            return (
               <Link
                 key={link.name}
                 to={link.path}
-                className={`text-sm font-semibold hover:text-sopi-teal transition-colors ${textColor}`}
+                onClick={() => setIsOpen(false)}
+                className={`block rounded-xl px-4 py-4 text-base font-semibold transition-colors ${
+                  active
+                    ? 'bg-slate-50 text-sopi-teal'
+                    : 'text-slate-800 hover:bg-slate-50'
+                }`}
               >
                 {link.name}
               </Link>
-            ))}
-
-
-          </div>
-
-          {/* Mobile Menu Button */}
-          <div className="md:hidden">
-            <button
-              onClick={() => setIsOpen(!isOpen)}
-              className={`${!scrolled && isHome ? 'text-white' : 'text-slate-900'}`}
-              aria-label="Ouvrir le menu"
-            >
-              {isOpen ? <X size={28} /> : <Menu size={28} />}
-            </button>
-          </div>
+            );
+          })}
         </div>
       </div>
-
-      {/* Mobile Menu Overlay */}
-      {isOpen && (
-<div className="md:hidden bg-white fixed inset-0 z-50 flex flex-col pt-24 px-8 pb-10 space-y-8 overflow-y-auto overscroll-contain animate-in fade-in slide-in-from-top duration-300">          <button
-            onClick={() => setIsOpen(false)}
-            className="absolute top-6 right-6 text-slate-900"
-            aria-label="Fermer le menu"
-          >
-            <X size={32} />
-          </button>
-
-          {navLinks.map((link) => (
-            <Link
-              key={link.name}
-              to={link.path}
-              onClick={() => setIsOpen(false)}
-              className="text-2xl font-serif text-sopi-teal border-b border-slate-100 pb-4"
-            >
-              {link.name}
-            </Link>
-          ))}
-
-          {/* Mobile CTA -> Call */}
-
-        </div>
-      )}
-    </nav>
+    </>
   );
 };
 

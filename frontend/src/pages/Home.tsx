@@ -12,38 +12,49 @@ const Home: React.FC = () => {
   return (
     <div className="bg-white">
       {/* Hero Section - Using the Aerial View Render Concept */}
-            <section className="relative h-screen min-h-[700px] flex items-center overflow-hidden">
-              <div className="absolute inset-0 z-0">
-                <img 
-                  src="https://pucnaybubqtzroujukeb.supabase.co/storage/v1/object/public/apartments/oussama-2/facade.jpg"
-                  alt="Résidence Oussama 2 - Vue Aérienne" 
-                  className="w-full h-full object-cover scale-105 animate-[pulse_15s_ease-in-out_infinite]"
-                />
-                <div className="absolute inset-0 bg-gradient-to-r from-sopi-teal/90 via-sopi-teal/40 to-transparent"></div>
-              </div>
-      
-              <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20">
-                <div className="max-w-2xl">
-                  <span className="inline-block px-4 py-1.5 bg-sopi-peach text-sopi-teal rounded-full text-xs font-bold uppercase tracking-widest mb-6 animate-in fade-in slide-in-from-bottom-4 duration-700 shadow-lg">
-                    Société Oussema Promotion Immobilière
-                  </span>
-                  <h1 className="text-5xl md:text-7xl font-serif font-bold text-white leading-[1.1] mb-6 animate-in fade-in slide-in-from-bottom-8 duration-700 delay-100">
-                    SOPI, promoteur immobilier de confiance <span className="text-sopi-peach italic"> </span>
-                  </h1>
-                  <p className="text-xl text-white/90 mb-10 leading-relaxed animate-in fade-in slide-in-from-bottom-10 duration-700 delay-200">
-                  Depuis 2015, SOPI conçoit et développe des projets immobiliers alliant maîtrise du foncier, architecture contemporaine et sécurité patrimoniale durable.                  </p>
-                  <div className="flex flex-col sm:flex-row gap-4 animate-in fade-in slide-in-from-bottom-12 duration-700 delay-300">
-                    <Link to="/nosprojets" className="bg-sopi-peach hover:bg-white text-sopi-teal px-8 py-4 rounded-xl font-bold text-lg shadow-xl shadow-black/10 transition-all flex items-center justify-center gap-2">
-                      Découvrir nos projets
-                      <ArrowRight size={20} />
-                    </Link>
+<section className="relative h-screen min-h-[700px] flex items-center overflow-hidden">
+  <div className="absolute inset-0 z-0">
+    <img 
+      src="https://pucnaybubqtzroujukeb.supabase.co/storage/v1/object/public/apartments/oussama-2/facade.jpg"
+      alt="Résidence Oussama 2 - Vue extérieure" 
+      className="w-full h-full object-cover scale-105 animate-[pulse_15s_ease-in-out_infinite]"
+    />
+    <div className="absolute inset-0 bg-gradient-to-r from-sopi-teal/75 via-sopi-teal/35 to-transparent"></div>
+  </div>
 
-                  </div>
-                </div>
-              </div>
-      
+  <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 w-full">
+    <div className="max-w-2xl">
+      <span className="inline-block px-4 py-1.5 bg-sopi-peach text-sopi-teal rounded-full text-xs font-bold uppercase tracking-widest mb-6 animate-in fade-in slide-in-from-bottom-4 duration-700 shadow-lg">
+        Promoteur immobilier
+      </span>
 
-            </section>
+      <h1 className="text-4xl md:text-6xl lg:text-7xl font-serif font-bold text-white leading-[1.05] mb-6 animate-in fade-in slide-in-from-bottom-8 duration-700 delay-100">
+        Des logements modernes, pensés pour votre quotidien
+      </h1>
+
+      <p className="text-lg md:text-xl text-white/90 mb-10 leading-relaxed max-w-xl animate-in fade-in slide-in-from-bottom-10 duration-700 delay-200">
+        Découvrez des résidences confortables, durables et bien situées, conçues pour répondre à vos besoins.
+      </p>
+
+      <div className="flex flex-col sm:flex-row gap-4 animate-in fade-in slide-in-from-bottom-12 duration-700 delay-300">
+        <Link
+          to="/appartements"
+          className="bg-sopi-peach hover:bg-white text-sopi-teal px-8 py-4 rounded-xl font-bold text-lg shadow-xl shadow-black/10 transition-all flex items-center justify-center gap-2"
+        >
+          Voir nos appartements
+          <ArrowRight size={20} />
+        </Link>
+
+        <Link
+          to="/contact"
+          className="border border-white/30 hover:bg-white/10 text-white px-8 py-4 rounded-xl font-bold text-lg transition-all flex items-center justify-center gap-2"
+        >
+          Nous contacter
+        </Link>
+      </div>
+    </div>
+  </div>
+</section>
 
       {/* Highlights Section based on renders */}
       <section className="py-24 bg-white">
@@ -52,42 +63,43 @@ const Home: React.FC = () => {
               <div className="relative">
                  <div className="grid grid-cols-2 gap-4">
                     <img 
-                      src="https://pucnaybubqtzroujukeb.supabase.co/storage/v1/object/public/apartments/oussama-2/piscine1.jpg"
+                      src="https://pucnaybubqtzroujukeb.supabase.co/storage/v1/object/public/apartments/oussama-2/facade4.jpg"
                       className="rounded-3xl shadow-xl w-full h-80 object-cover"
                     />
                     <img 
-                      src="https://pucnaybubqtzroujukeb.supabase.co/storage/v1/object/public/apartments/oussama-2/facade2.jpg"
+                      src="https://pucnaybubqtzroujukeb.supabase.co/storage/v1/object/public/apartments/oussama-2/piscine1.jpg"
                       className="rounded-3xl shadow-xl w-full h-80 object-cover mt-12"
                     />
                  </div>
-                 <div className="absolute -bottom-20 -right-6 bg-sopi-teal text-white p-8 rounded-3xl hidden md:block">
+                 <div className="absolute -bottom-20 -right-6 bg-sopi-teal text-white p-5 rounded-3xl hidden md:block">
                     <p className="text-4xl font-serif font-bold italic mb-1">SOPI</p>
-                    <p className="text-xs uppercase font-bold tracking-widest text-sopi-peach">Promotion de Prestige</p>
+                    <p className="text-xs uppercase font-bold tracking-widest text-sopi-peach">Promoteur immobilier</p>
                  </div>
               </div>
               <div>
-                 <span className="text-sopi-teal font-bold uppercase tracking-widest text-xs mb-4 block">Concept Architectural</span>
-                 <h2 className="text-3xl md:text-5xl font-serif font-bold text-slate-900 mb-6 leading-tight">Qui sommes-nous</h2>
+                 <span className="text-sopi-teal font-bold uppercase tracking-widest text-xs mb-4 block">À propos de SOPI</span>
+                 <h2 className="text-3xl md:text-5xl font-serif font-bold text-slate-900 mb-6 leading-tight">Des résidences conçues pour durer</h2>
                  <p className="text-slate-600 mb-6 leading-relaxed text-lg">
-                <strong>Chez SOPI, nous concevons chaque projet comme un engagement à long terme.</strong> </p>
+                <strong>Chez SOPI, chaque projet est pensé comme un engagement durable.</strong> </p>
                  <p className="text-slate-600 mb-6 leading-relaxed text-lg">
-                   Promoteur immobilier indépendant, SOPI développe des résidences à forte valeur ajoutée, alliant confort au quotidien, durabilité des constructions et sécurité de l’investissement.    </p>             
+                  Nous développons des résidences modernes, conçues pour le confort au quotidien et la valeur à long terme.
+                    </p>             
                  <ul className="space-y-4 mb-8">
                     <li className="flex items-center gap-3 text-slate-700 font-medium">
                        <div className="w-2 h-2 bg-sopi-teal rounded-full"></div>
-                       Expertise locale et maîtrise stratégique du foncier
+                       Maîtrise du foncier et expertise locale
                     </li>
                     <li className="flex items-center gap-3 text-slate-700 font-medium">
                        <div className="w-2 h-2 bg-sopi-teal rounded-full"></div>
-                       Architecture moderne & finitions durables
+                       Résidences modernes aux finitions durables
                     </li>
                     <li className="flex items-center gap-3 text-slate-700 font-medium">
                        <div className="w-2 h-2 bg-sopi-teal rounded-full"></div>
-                       Engagement contractuel sur les délais et la qualité
+                       Respect des délais et de la qualité
                     </li>
                  </ul>
-                 <Link to="/residence" className="inline-flex items-center gap-2 text-sopi-teal font-bold border-b-2 border-sopi-teal pb-1 hover:text-sopi-teal-dark transition-colors">
-                    Explorer nos projets
+                 <Link to="/nosprojets" className="inline-flex items-center gap-2 text-sopi-teal font-bold border-b-2 border-sopi-teal pb-1 hover:text-sopi-teal-dark transition-colors">
+                    Voir nos projets
                     <ArrowRight size={18} />
                  </Link>
               </div>
@@ -101,8 +113,7 @@ const Home: React.FC = () => {
       <section className="py-24 bg-gradient-to-b from-slate-50 to-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <span className="text-sopi-teal font-bold uppercase tracking-widest text-xs">SOPI en Chiffres</span>
-            <h2 className="text-3xl md:text-5xl font-serif font-bold text-slate-900 mt-2">Des réalisations concrètes, construites dans la durée</h2>
+            <h2 className="text-3xl md:text-5xl font-serif font-bold text-slate-900 mt-2">SOPI en chiffres</h2>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -112,7 +123,6 @@ const Home: React.FC = () => {
               </div>
               <p className="text-5xl font-serif font-bold text-sopi-teal mb-2">{COMPANY_STATS.projectsDelivered}</p>
               <p className="text-slate-600 font-bold">projets résidentiels livrés</p>
-              <p className="text-slate-400 font-bold">dans des emplacements stratégiques en Tunisie</p>
 
             </div>
 
@@ -122,7 +132,6 @@ const Home: React.FC = () => {
               </div>
               <p className="text-5xl font-serif font-bold text-sopi-teal mb-2">{COMPANY_STATS.satisfiedClients}+</p>
               <p className="text-slate-600 font-bold">clients accompagnés</p>
-              <p className="text-slate-400 font-bold">dans leurs projets d’acquisition et d’investissement</p>
             </div>
 
             <div className="bg-white rounded-3xl p-12 text-center border border-slate-100 shadow-lg hover:shadow-xl transition-shadow">
@@ -131,7 +140,6 @@ const Home: React.FC = () => {
               </div>
               <p className="text-5xl font-serif font-bold text-sopi-teal mb-2">{new Date().getFullYear() - COMPANY_STATS.founded}+</p>
               <p className="text-slate-600 font-bold">années d’expérience</p>
-              <p className="text-slate-400 font-bold">en promotion immobilière résidentielle</p>
             </div>
           </div>
         </div>
@@ -140,22 +148,28 @@ const Home: React.FC = () => {
 {/* Oussama Series (Projects) */}
 <section className="py-24 bg-slate-50">
   <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+    {/* Header */}
     <div className="text-center mb-16">
       <span className="text-sopi-teal font-bold uppercase tracking-widest text-xs">
         Nos projets
       </span>
+
       <h2 className="text-3xl md:text-5xl font-serif font-bold text-slate-900 mt-2">
-        La série de résidences Oussama
+        Nos résidences à La Nouvelle Soukra
       </h2>
-      <p className="text-slate-600 mt-4 max-w-3xl mx-auto leading-relaxed">
-        SOPI développe actuellement la série de résidences Oussama, avec une planification claire des livraisons
-        et une continuité de projets sur plusieurs années.
+
+      <p className="text-slate-600 mt-4 max-w-2xl mx-auto leading-relaxed">
+        Découvrez la série de résidences Oussama, des projets modernes conçus pour offrir confort,
+        qualité et cadre de vie durable.
       </p>
     </div>
 
     <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+
       {/* Oussama I */}
-      <article className="bg-white rounded-3xl border border-slate-100 shadow-lg hover:shadow-xl transition-shadow overflow-hidden">
+      <article className="bg-white rounded-3xl border border-slate-100 shadow-lg hover:shadow-xl transition-all hover:-translate-y-1 overflow-hidden">
+
         <div className="h-56">
           <img
             src="https://pucnaybubqtzroujukeb.supabase.co/storage/v1/object/public/apartments/oussama-1/facade.jpg"
@@ -165,9 +179,10 @@ const Home: React.FC = () => {
         </div>
 
         <div className="p-8">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-100 text-slate-700 text-xs font-bold uppercase tracking-widest">
-            <Clock size={16} className="text-slate-600" />
-            En cours • Appartements disponibles
+
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-sopi-teal/10 text-sopi-teal text-xs font-bold uppercase tracking-widest">
+            <Sparkles size={16} />
+            Disponibilités limitées
           </div>
 
           <h3 className="text-2xl font-serif font-bold text-slate-900 mt-4">
@@ -175,27 +190,36 @@ const Home: React.FC = () => {
           </h3>
 
           <p className="text-slate-600 mt-3 leading-relaxed">
-            Programme en cours de réalisation, avec encore quelques appartements disponibles.
-            
+            Première résidence de la série Oussama, actuellement en cours de réalisation,
+            avec un nombre limité d’appartements disponibles.
           </p>
 
-          <p className="text-slate-500 mt-4 font-medium">
-            Livraison prévue : <strong>2027</strong>
-          </p>
+          <div className="mt-5 space-y-2">
+            <div className="flex items-center gap-2 text-slate-600 font-semibold">
+              <Calendar size={18} className="text-sopi-teal" />
+              Livraison prévue : <span className="text-slate-900 font-bold">2027</span>
+            </div>
+            <div className="flex items-center gap-2 text-slate-600 font-semibold">
+              <MapPin size={18} className="text-sopi-teal" />
+              La Nouvelle Soukra
+            </div>
+          </div>
 
           <div className="mt-6">
             <Link
               to="/appartements?projet=oussama-1"
-              className="bg-sopi-teal text-white px-6 py-3 rounded-2xl font-bold hover:bg-sopi-teal-dark transition-all text-center"
+              className="bg-sopi-teal text-white px-6 py-3 rounded-2xl font-bold hover:bg-sopi-teal-dark transition-all w-full text-center block"
             >
-              Voir les appartements
+              Voir les disponibilités
             </Link>
           </div>
         </div>
       </article>
 
+
       {/* Oussama II (featured) */}
-      <article className="bg-white rounded-3xl border border-sopi-teal/25 shadow-lg hover:shadow-xl transition-shadow overflow-hidden ring-1 ring-sopi-teal/20">
+      <article className="bg-white rounded-3xl border-2 border-sopi-teal shadow-xl overflow-hidden scale-[1.02]">
+
         <div className="h-56">
           <img
             src="https://pucnaybubqtzroujukeb.supabase.co/storage/v1/object/public/apartments/oussama-2/facade.jpg"
@@ -205,9 +229,10 @@ const Home: React.FC = () => {
         </div>
 
         <div className="p-8">
+
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-sopi-teal/10 text-sopi-teal text-xs font-bold uppercase tracking-widest">
-            <Sparkles size={16} className="text-sopi-teal" />
-            Disponible
+            <Sparkles size={16} />
+            En cours
           </div>
 
           <h3 className="text-2xl font-serif font-bold text-slate-900 mt-4">
@@ -215,33 +240,35 @@ const Home: React.FC = () => {
           </h3>
 
           <p className="text-slate-600 mt-3 leading-relaxed">
-                Projet actuellement en commercialisation, avec des lots disponibles.
+            Résidence en cours de réalisation, située dans la continuité de la résidence Oussama I,
+            avec des appartements modernes et des prestations de qualité.
           </p>
 
-          <p className="text-slate-500 mt-4 font-medium">
-            Livraison prévue : <strong>2028</strong>
-          </p>
+          <div className="mt-5 space-y-2">
+            <div className="flex items-center gap-2 text-slate-600 font-semibold">
+              <Calendar size={18} className="text-sopi-teal" />
+              Livraison prévue : <span className="text-slate-900 font-bold">2028</span>
+            </div>
+            <div className="flex items-center gap-2 text-slate-600 font-semibold">
+              <MapPin size={18} className="text-sopi-teal" />
+              La Nouvelle Soukra
+            </div>
+          </div>
 
-              <div className="mt-7 flex flex-col sm:flex-row gap-3">
-                <Link
-                  to="/appartements?projet=oussama-2"
-                  className="bg-sopi-teal text-white px-6 py-3 rounded-2xl font-bold hover:bg-sopi-teal-dark transition-all text-center"
-                >
-                  Voir les appartements
-                </Link>
-
-                <Link
-                  to="/residence/oussama-2"
-                  className="bg-white border-2 border-sopi-teal text-sopi-teal px-6 py-3 rounded-2xl font-bold hover:bg-slate-50 transition-all text-center inline-flex items-center justify-center gap-2"
-                >
-                  Découvrir le projet <ArrowRight size={18} />
-                </Link>
-              </div>
+          <div className="mt-6">
+            <Link
+              to="/appartements?projet=oussama-2"
+              className="bg-sopi-teal text-white px-6 py-3 rounded-2xl font-bold hover:bg-sopi-teal-dark transition-all w-full text-center block"
+            >
+              Voir les disponibilités
+            </Link>
+          </div>
         </div>
       </article>
 
+
       {/* Oussama III */}
-      <article className="bg-white rounded-3xl border border-slate-100 shadow-lg hover:shadow-xl transition-shadow overflow-hidden">
+      <article className="bg-white rounded-3xl border border-slate-100 shadow-lg overflow-hidden">
 
         <div className="relative h-56 overflow-hidden">
 
@@ -251,12 +278,9 @@ const Home: React.FC = () => {
             className="w-full h-full object-cover blur-[2px] scale-105"
           />
 
-          <div className="absolute inset-0 bg-slate-900/20 flex items-center justify-center">
+          <div className="absolute inset-0 bg-slate-900/30 flex items-center justify-center">
             <div className="text-center text-white">
               <p className="text-[11px] uppercase tracking-[0.25em] font-semibold opacity-90">
-                Concept architectural
-              </p>
-              <p className="mt-2 text-lg font-serif font-bold">
                 Projet en préparation
               </p>
             </div>
@@ -265,8 +289,9 @@ const Home: React.FC = () => {
         </div>
 
         <div className="p-8">
+
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-100 text-amber-800 text-xs font-bold uppercase tracking-widest">
-            <Clock size={16} className="text-amber-700" />
+            <Clock size={16} />
             À venir
           </div>
 
@@ -275,25 +300,26 @@ const Home: React.FC = () => {
           </h3>
 
           <p className="text-slate-600 mt-3 leading-relaxed">
-            Prochain projet de la série Oussama, actuellement en phase de conception.
+            Prochain projet en cours de conception, dans la continuité du même ensemble résidentiel.
           </p>
 
-              <div className="mt-5 space-y-2">
-                <div className="flex items-center gap-2 text-slate-600 font-semibold">
-                  <Calendar size={18} className="text-sopi-teal" />
-                  Livraison prévue : <span className="text-slate-900 font-bold">2029</span>
-                </div>
-                <div className="flex items-center gap-2 text-slate-600 font-semibold">
-                  <MapPin size={18} className="text-sopi-teal" />
-                  Tunis (emplacement communiqué au lancement)
-                </div>
-              </div>
+          <div className="mt-5 space-y-2">
+            <div className="flex items-center gap-2 text-slate-600 font-semibold">
+              <Calendar size={18} className="text-sopi-teal" />
+              Livraison prévue : <span className="text-slate-900 font-bold">2029</span>
+            </div>
+            <div className="flex items-center gap-2 text-slate-600 font-semibold">
+              <MapPin size={18} className="text-sopi-teal" />
+              La Nouvelle Soukra
+            </div>
+          </div>
+
         </div>
       </article>
+
     </div>
   </div>
 </section>
-
 
 
 {/* FAQ Rapide */}
@@ -304,7 +330,7 @@ const Home: React.FC = () => {
         Questions Fréquentes
       </span>
       <h2 className="text-3xl md:text-5xl font-serif font-bold text-slate-900 mt-2">
-        FAQ Rapide
+        Vos questions, nos réponses
       </h2>
     </div>
 
@@ -330,8 +356,9 @@ const Home: React.FC = () => {
           <ArrowRight className="text-sopi-teal group-open:rotate-90 transition-transform" />
         </summary>
         <p className="text-slate-600 mt-4 leading-relaxed">
-          La livraison de la Résidence Oussama I est prévue en 2027, celle de la Résidence Oussama II en 2028,
-          et la Résidence Oussama III en 2029.
+          La livraison de la résidence Oussama I est prévue au 2ème semestre 2027,
+          celle de la résidence Oussama II au 2ème semestre 2028,
+          et celle de la résidence Oussama III au 2ème semestre 2029.
         </p>
       </details>
 
@@ -356,8 +383,20 @@ const Home: React.FC = () => {
           <ArrowRight className="text-sopi-teal group-open:rotate-90 transition-transform" />
         </summary>
         <p className="text-slate-600 mt-4 leading-relaxed">
-          Bien sûr. Il est possible de visiter nos bureaux commerciaux et de consulter les plans détaillés
-          des appartements disponibles sur rendez-vous.
+          Oui. Vous pouvez consulter les plans détaillés des appartements disponibles
+          et obtenir toutes les informations nécessaires avant toute réservation.
+        </p>
+      </details>
+            <details className="group bg-slate-50 rounded-2xl p-6 border border-slate-100 hover:border-sopi-teal transition-all">
+        <summary className="flex items-center justify-between cursor-pointer list-none gap-4">
+          <h4 className="text-lg font-bold text-slate-900">
+            Peut-on visiter avant de prendre une décision ?
+          </h4>
+          <ArrowRight className="text-sopi-teal shrink-0 group-open:rotate-90 transition-transform" />
+        </summary>
+        <p className="text-slate-600 mt-4 leading-relaxed">
+          Oui. Il est possible de prendre rendez-vous pour visiter et échanger avec notre équipe
+          avant de finaliser votre choix.
         </p>
       </details>
 
@@ -369,8 +408,8 @@ const Home: React.FC = () => {
           <ArrowRight className="text-sopi-teal group-open:rotate-90 transition-transform" />
         </summary>
         <p className="text-slate-600 mt-4 leading-relaxed">
-          SOPI assure un service après-vente structuré ainsi que les garanties légales liées à la construction,
-          afin d’assurer la sérénité de ses clients après la remise des clés.
+            SOPI assure un suivi après livraison ainsi que les garanties légales liées à la construction,
+          afin d’accompagner ses clients après la remise des clés.
         </p>
       </details>
     </div>
@@ -387,24 +426,7 @@ const Home: React.FC = () => {
   </div>
 </section>
 
-      {/* Final Conversion CTA */}
-      <section className="py-24">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <div className="bg-sopi-peach/30 rounded-[3rem] p-12 md:p-20 border border-sopi-peach">
-            <h2 className="text-3xl md:text-5xl font-serif font-bold text-sopi-teal mb-8">Réservez votre visite ou anticipez votre futur investissement.</h2>
-            <p className="text-slate-600 text-lg mb-12 max-w-2xl mx-auto">
-        Nos conseillers vous accompagnent dans l’acquisition d’un appartement au sein des
-        <strong> Résidences Oussama I et II</strong>, et vous informent en priorité sur le
-        lancement de la <strong>Résidence Oussama III</strong>.          </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link to="/contact" className="bg-sopi-teal text-white px-10 py-5 rounded-2xl font-bold text-xl hover:bg-sopi-teal-dark transition-all shadow-xl shadow-sopi-teal/20">
-                Contactez-nous
-              </Link>
 
-            </div>
-          </div>
-        </div>
-      </section>
 
       
     </div>

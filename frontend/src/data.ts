@@ -6,7 +6,7 @@ export { COMPANY_STATS, COMPANY_STRENGTHS, TESTIMONIALS, FAQ_HOME, FAQ_RESIDENCE
 export const PROJECT_INFO: ProjectInfo = {
   name: "Résidence Oussama 2",
   location: "La Nouvelle Soukra, Tunis",
-  deliveryDate: "3ème trimestre 2028",
+  deliveryDate: "2ème semestre 2028",
   unitsCount: 24,
   amenities: ["Conciergerie 24/7", "Salle de sport", "Jardins méditerranéens", "Parking sous-sol sécurisé", "Domotique intelligente"],
   panoramaUrl: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=4000&q=80"
