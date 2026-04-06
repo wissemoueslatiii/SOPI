@@ -23,7 +23,7 @@ const Home: React.FC = () => {
   </div>
 
   <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 w-full">
-    <div className="max-w-2xl">
+    <div className="max-w-xl">
       <span className="inline-block px-4 py-1.5 bg-sopi-peach text-sopi-teal rounded-full text-xs font-bold uppercase tracking-widest mb-6 animate-in fade-in slide-in-from-bottom-4 duration-700 shadow-lg">
         Promoteur immobilier
       </span>
@@ -43,13 +43,6 @@ const Home: React.FC = () => {
         >
           Voir nos appartements
           <ArrowRight size={20} />
-        </Link>
-
-        <Link
-          to="/contact"
-          className="border border-white/30 hover:bg-white/10 text-white px-8 py-4 rounded-xl font-bold text-lg transition-all flex items-center justify-center gap-2"
-        >
-          Nous contacter
         </Link>
       </div>
     </div>

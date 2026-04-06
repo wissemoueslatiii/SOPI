@@ -394,7 +394,7 @@ Résidence Oussama II propose des appartements modernes dans un environnement s�
               <div className="mt-5 space-y-2">
                 <div className="flex items-center gap-2 text-slate-600 font-semibold">
                   <Calendar size={18} className="text-sopi-teal" />
-                  Livraison prévue : <span className="text-slate-900 font-bold">2ème semestre 2027</span>
+                  Livraison prévue : <span className="text-slate-900 font-bold">2027</span>
                 </div>
                 <div className="flex items-center gap-2 text-slate-600 font-semibold">
                   <MapPin size={18} className="text-sopi-teal" />
@@ -565,10 +565,6 @@ Résidence Oussama II propose des appartements modernes dans un environnement s�
                 <ChevronRight size={22} />
               </button>
             </div>
-
-            <p className="text-white/70 text-center text-sm mt-4">
-              Astuce : flèches du clavier ← → • Échap pour fermer
-            </p>
           </div>
         </div>
       )}
