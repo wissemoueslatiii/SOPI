@@ -12,7 +12,7 @@ export async function getAll(_req: Request, res: Response) {
 
 export async function getOne(req: Request, res: Response) {
   try {
-    const id = req.params.id;
+    const id = req.params.id as string;
     const project = await getProjectById(id);
     if (!project) return res.status(404).json({ message: "Projet introuvable" });
     res.json(project);

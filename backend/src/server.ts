@@ -28,7 +28,7 @@ app.use('/api/auth', authRouter);
 app.use('/api/ai', aiRouter);
 
 // Health check
-app.get('/api/health', (_req, res) => {
+app.get('/api/health', (_req: express.Request, res: express.Response) => {
   res.json({ status: 'ok', timestamp: new Date().toISOString() });
 });
 
