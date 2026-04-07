@@ -368,22 +368,10 @@ const Home: React.FC = () => {
         </p>
       </details>
 
-      <details className="group bg-slate-50 rounded-2xl p-6 border border-slate-100 hover:border-sopi-teal transition-all">
-        <summary className="flex items-center justify-between cursor-pointer list-none">
-          <h4 className="text-lg font-bold text-slate-900">
-            Puis-je visiter ou consulter les plans avant de réserver ?
-          </h4>
-          <ArrowRight className="text-sopi-teal group-open:rotate-90 transition-transform" />
-        </summary>
-        <p className="text-slate-600 mt-4 leading-relaxed">
-          Oui. Vous pouvez consulter les plans détaillés des appartements disponibles
-          et obtenir toutes les informations nécessaires avant toute réservation.
-        </p>
-      </details>
             <details className="group bg-slate-50 rounded-2xl p-6 border border-slate-100 hover:border-sopi-teal transition-all">
         <summary className="flex items-center justify-between cursor-pointer list-none gap-4">
           <h4 className="text-lg font-bold text-slate-900">
-            Peut-on visiter avant de prendre une décision ?
+            Est-il possible de visiter avant de prendre une décision ?
           </h4>
           <ArrowRight className="text-sopi-teal shrink-0 group-open:rotate-90 transition-transform" />
         </summary>

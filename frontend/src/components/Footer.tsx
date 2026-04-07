@@ -57,6 +57,11 @@ const Footer: React.FC = () => {
             <h4 className="text-sopi-peach font-bold mb-4">Explorer</h4>
             <ul className="space-y-3 text-sm text-white/80">
               <li>
+                <Link to="/" className="hover:text-white transition-colors">
+                  Acceuil
+                </Link>
+              </li>
+              <li>
                 <Link to="/nosprojets" className="hover:text-white transition-colors">
                   Projets
                 </Link>
@@ -71,11 +76,6 @@ const Footer: React.FC = () => {
                   Prendre rendez-vous
                 </Link>
               </li>
-              <li>
-                <Link to="/#faq" className="hover:text-white transition-colors">
-                  FAQ
-                </Link>
-              </li>
             </ul>
           </div>
 
@@ -87,7 +87,7 @@ const Footer: React.FC = () => {
               <li className="flex gap-3">
                 <MapPin size={18} className="text-sopi-peach shrink-0 mt-1" />
                 <a
-                  href="https://maps.app.goo.gl/k1neeF9x8uWpCQeC8?g_st=ic"
+                  href="https://maps.app.goo.gl/FaJ7vG5MzWWwHTUZA?g_st=ic"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="hover:text-white transition-colors"
@@ -111,12 +111,6 @@ const Footer: React.FC = () => {
               </li>
             </ul>
 
-            <Link
-              to="/contact"
-              className="inline-flex items-center rounded-xl bg-white text-sopi-teal px-4 py-2.5 text-sm font-semibold hover:bg-slate-100 transition-colors"
-            >
-              Nous contacter
-            </Link>
           </div>
 
         </div>

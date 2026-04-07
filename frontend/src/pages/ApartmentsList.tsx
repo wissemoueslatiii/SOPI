@@ -1,5 +1,5 @@
 import React, { useEffect, useMemo, useState } from "react";
-import { Search, LayoutGrid, List } from "lucide-react";
+import { Search } from "lucide-react";
 import { useLocation, useNavigate } from "react-router-dom";
 
 import ApartmentCard from "../components/ApartmentCard";
@@ -19,24 +19,22 @@ type ProjectFilter = "all" | ProjectId;
 
 type Apartment = {
   id: string;
+  uuid?: string | null;
   projectId?: string | null;
   type?: string | null;
   status?: string | null;
   price?: number | null;
   surfaceTotale?: number | null;
 
-  // images déjà prêtes depuis backend
   mainImageUrl?: string | null;
   galleryUrls?: string[] | null;
   planImageUrl?: string | null;
   panoramaUrl?: string | null;
 
-  // autres champs si ApartmentCard en a besoin
   bloc?: string | null;
   etage?: string | number | null;
   view?: string | null;
 
-  // champs utiles pour le tri logique si dispo depuis backend
   reference?: string | null;
   numero?: string | number | null;
   lot?: string | null;
@@ -48,7 +46,6 @@ const ApartmentsList: React.FC = () => {
   const location = useLocation();
   const navigate = useNavigate();
 
-  // read query params
   const params = useMemo(() => new URLSearchParams(location.search), [location.search]);
   const qpProjet = (params.get("projet") || "all") as ProjectFilter;
   const qpType = params.get("type") || "all";
@@ -60,24 +57,25 @@ const ApartmentsList: React.FC = () => {
   const [filterStatus, setFilterStatus] = useState<string>(qpStatut);
   const [sortBy, setSortBy] = useState<SortBy>(qpTri);
 
-  // data
   const [allApartments, setAllApartments] = useState<Apartment[]>([]);
   const [apartments, setApartments] = useState<Apartment[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
-  // sync filters to URL
   useEffect(() => {
     const next = new URLSearchParams();
+
     if (filterProject !== "all") next.set("projet", filterProject);
     if (filterType !== "all") next.set("type", filterType);
     if (filterStatus !== "all") next.set("statut", filterStatus);
     if (sortBy !== "ref-asc") next.set("tri", sortBy);
 
-    navigate({ pathname: location.pathname, search: next.toString() }, { replace: true });
+    navigate(
+      { pathname: location.pathname, search: next.toString() },
+      { replace: true }
+    );
   }, [filterProject, filterType, filterStatus, sortBy, navigate, location.pathname]);
 
-  // fetch apartments from backend
   useEffect(() => {
     let cancelled = false;
 
@@ -114,8 +112,8 @@ const ApartmentsList: React.FC = () => {
       try {
         const data = await getApartments({});
         if (!cancelled) setAllApartments(data ?? []);
-      } catch (e) {
-        // optionnel: ignorer ou logger
+      } catch {
+        // ignorer
       }
     })();
 
@@ -140,20 +138,23 @@ const ApartmentsList: React.FC = () => {
   }, [allApartments]);
 
   const getNumericValue = (value: unknown): number => {
-    if (typeof value === "number") return value;
+    if (typeof value === "number") return Number.isFinite(value) ? value : 0;
+
     if (typeof value === "string") {
-      const match = value.match(/\d+/);
+      const normalized = value.trim().toLowerCase();
+
+      if (!normalized) return 0;
+      if (normalized === "rdc") return 0;
+
+      const match = normalized.match(/\d+/);
       return match ? parseInt(match[0], 10) : 0;
     }
+
     return 0;
   };
 
   const getApartmentReference = (a: Apartment): string => {
-    const directRef =
-      a.reference ??
-      a.lot ??
-      a.label ??
-      a.name;
+    const directRef = a.reference ?? a.lot ?? a.label ?? a.name;
 
     if (typeof directRef === "string" && directRef.trim()) {
       return directRef.trim();
@@ -179,7 +180,6 @@ const ApartmentsList: React.FC = () => {
     });
   };
 
-  // sort locally (backend peut aussi trier, mais on garde ton UX)
   const sortedApartments = useMemo(() => {
     const copy = [...apartments];
 
@@ -191,15 +191,35 @@ const ApartmentsList: React.FC = () => {
       const aEtage = getNumericValue(a.etage);
       const bEtage = getNumericValue(b.etage);
 
-      if (sortBy === "ref-asc") return compareApartmentReference(a, b);
-      if (sortBy === "surface-desc") return bSurf - aSurf;
-      if (sortBy === "surface-asc") return aSurf - bSurf;
-      if (sortBy === "etage-asc") return aEtage - bEtage;
-      if (sortBy === "etage-desc") return bEtage - aEtage;
-      if (sortBy === "price-asc") return aPrice - bPrice;
-      if (sortBy === "price-desc") return bPrice - aPrice;
+      if (sortBy === "ref-asc") {
+        return compareApartmentReference(a, b);
+      }
 
-      return 0;
+      if (sortBy === "surface-desc") {
+        return bSurf - aSurf || compareApartmentReference(a, b);
+      }
+
+      if (sortBy === "surface-asc") {
+        return aSurf - bSurf || compareApartmentReference(a, b);
+      }
+
+      if (sortBy === "etage-asc") {
+        return aEtage - bEtage || compareApartmentReference(a, b);
+      }
+
+      if (sortBy === "etage-desc") {
+        return bEtage - aEtage || compareApartmentReference(a, b);
+      }
+
+      if (sortBy === "price-asc") {
+        return aPrice - bPrice || compareApartmentReference(a, b);
+      }
+
+      if (sortBy === "price-desc") {
+        return bPrice - aPrice || compareApartmentReference(a, b);
+      }
+
+      return compareApartmentReference(a, b);
     });
 
     return copy;
@@ -221,12 +241,12 @@ const ApartmentsList: React.FC = () => {
   return (
     <div className="pb-40 md:pb-24 bg-slate-50 min-h-screen">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Filter Bar */}
         <div className="bg-white rounded-2xl shadow-sm p-4 md:p-6 mb-8 md:mb-12 flex flex-col md:flex-row gap-6 items-center border border-slate-100 static md:sticky md:top-24 z-30">
           <div className="flex-1 w-full grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-4 gap-4">
-            {/* Projet */}
             <div className="space-y-1">
-              <label className="text-[10px] uppercase font-bold text-slate-400 px-1">Projet</label>
+              <label className="text-[10px] uppercase font-bold text-slate-400 px-1">
+                Projet
+              </label>
               <select
                 value={filterProject}
                 onChange={(e) => setFilterProject(e.target.value as ProjectFilter)}
@@ -238,9 +258,10 @@ const ApartmentsList: React.FC = () => {
               </select>
             </div>
 
-            {/* Typologie */}
             <div className="space-y-1">
-              <label className="text-[10px] uppercase font-bold text-slate-400 px-1">Typologie</label>
+              <label className="text-[10px] uppercase font-bold text-slate-400 px-1">
+                Typologie
+              </label>
               <select
                 value={filterType}
                 onChange={(e) => setFilterType(e.target.value)}
@@ -255,9 +276,10 @@ const ApartmentsList: React.FC = () => {
               </select>
             </div>
 
-            {/* Statut */}
             <div className="space-y-1">
-              <label className="text-[10px] uppercase font-bold text-slate-400 px-1">Statut</label>
+              <label className="text-[10px] uppercase font-bold text-slate-400 px-1">
+                Statut
+              </label>
               <select
                 value={filterStatus}
                 onChange={(e) => setFilterStatus(e.target.value)}
@@ -272,9 +294,10 @@ const ApartmentsList: React.FC = () => {
               </select>
             </div>
 
-            {/* Trier */}
             <div className="space-y-1">
-              <label className="text-[10px] uppercase font-bold text-slate-400 px-1">Trier par</label>
+              <label className="text-[10px] uppercase font-bold text-slate-400 px-1">
+                Trier par
+              </label>
               <select
                 value={sortBy}
                 onChange={(e) => setSortBy(e.target.value as SortBy)}
@@ -287,24 +310,9 @@ const ApartmentsList: React.FC = () => {
                 <option value="etage-asc">Étage ↑</option>
               </select>
             </div>
-
-            {/* Trier 
-            <div className="space-y-1">
-              <label className="text-[10px] uppercase font-bold text-slate-400 px-1">Trier par</label>
-              <select
-                value={sortBy}
-                onChange={(e) => setSortBy(e.target.value as SortBy)}
-                className="w-full bg-slate-50 border-none rounded-xl px-4 py-2.5 text-sm font-medium focus:ring-2 focus:ring-sopi-teal/40 outline-none"
-              >
-                <option value="price-asc">Prix croissant</option>
-                <option value="price-desc">Prix décroissant</option>
-              </select>
-            </div>
-*/}
           </div>
         </div>
 
-        {/* Results */}
         {loading ? (
           <div className="text-center py-20">Chargement...</div>
         ) : error ? (
@@ -321,17 +329,25 @@ const ApartmentsList: React.FC = () => {
         ) : sortedApartments.length > 0 ? (
           <>
             <div className="flex items-center justify-between mb-6">
-              <p className="text-slate-500 font-medium">{sortedApartments.length} appartement(s) trouvé(s)</p>
+              <p className="text-slate-500 font-medium">
+                {sortedApartments.length} appartement(s) trouvé(s)
+              </p>
               {hasActiveFilters && (
-                <button onClick={resetFilters} className="text-sopi-teal font-bold hover:text-sopi-teal-dark">
+                <button
+                  onClick={resetFilters}
+                  className="text-sopi-teal font-bold hover:text-sopi-teal-dark"
+                >
                   Réinitialiser
                 </button>
               )}
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {sortedApartments.map((apt) => (
-                <ApartmentCard key={apt.id} apartment={apt as any} />
+              {sortedApartments.map((apt, index) => (
+                <ApartmentCard
+                  key={apt.uuid ?? `${apt.projectId ?? "no-project"}-${apt.id}-${index}`}
+                  apartment={apt as any}
+                />
               ))}
             </div>
           </>
@@ -341,7 +357,9 @@ const ApartmentsList: React.FC = () => {
               <Search size={32} className="text-slate-300" />
             </div>
             <h3 className="text-xl font-bold text-slate-900 mb-2">Aucun résultat</h3>
-            <p className="text-slate-500 mb-8">Essayez de modifier vos critères de recherche.</p>
+            <p className="text-slate-500 mb-8">
+              Essayez de modifier vos critères de recherche.
+            </p>
             <button
               onClick={resetFilters}
               className="bg-sopi-teal text-white px-8 py-3 rounded-xl font-bold hover:bg-sopi-teal-dark transition-all"
