@@ -1,0 +1,47 @@
+# Variables d'Environnement à Ajouter sur Render.com
+# Copiez ces variables dans Render → Environment Variables
+
+PORT=4000
+NODE_ENV=production
+CORS_ORIGIN=https://frontend-lyart-psi-89.vercel.app
+
+# ⚠️ IMPORTANT : Remplacez les valeurs ci-dessous par vos vraies clés
+
+# 1. SUPABASE - Trouvez vos clés ici :
+#    https://app.supabase.com/project/_/settings/api
+SUPABASE_URL=
+SUPABASE_ANON_KEY=
+SUPABASE_SERVICE_ROLE_KEY=
+
+# 2. GOOGLE GEMINI - Créez une clé API ici :
+#    https://makersuite.google.com/app/apikey
+#    ou https://aistudio.google.com/app/apikey
+GEMINI_API_KEY=
+
+
+# ═══════════════════════════════════════════════════════════════
+# GUIDE : Comment Trouver vos Clés
+# ═══════════════════════════════════════════════════════════════
+
+# 📦 SUPABASE :
+# 1. Allez sur : https://supabase.com/dashboard
+# 2. Sélectionnez votre projet (ou créez-en un)
+# 3. Settings → API
+# 4. Copiez :
+#    - Project URL → SUPABASE_URL
+#    - anon/public key → SUPABASE_ANON_KEY
+#    - service_role key → SUPABASE_SERVICE_ROLE_KEY (⚠️ Secret!)
+
+# 🤖 GOOGLE GEMINI :
+# 1. Allez sur : https://aistudio.google.com/app/apikey
+# 2. Cliquez sur "Create API Key"
+# 3. Sélectionnez un projet Google Cloud (ou créez-en un)
+# 4. Copiez la clé qui commence par "AIza..."
+
+# ═══════════════════════════════════════════════════════════════
+# Sur Render.com :
+# 1. Pendant la création du Web Service
+# 2. Cliquez sur "Advanced"
+# 3. Ajoutez chaque variable une par une
+# 4. OU après création : Settings → Environment → Add Environment Variable
+# ═══════════════════════════════════════════════════════════════
