@@ -5,7 +5,10 @@
   "scripts": {
     "dev": "tsx watch src/server.ts",
     "build": "tsc",
-    "start": "node dist/server.js"
+    "start": "node dist/server.js",
+    "prod": "npm run build && npm start",
+    "docker:build": "docker build -f ../Dockerfile.backend -t sopi-backend:latest ..",
+    "docker:run": "docker run -p 4000:4000 --env-file .env sopi-backend:latest"
   },
   "dependencies": {
     "@google/genai": "^1.39.0",

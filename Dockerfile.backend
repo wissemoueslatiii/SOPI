@@ -1,0 +1,36 @@
+# Dockerfile pour le Backend SOPI
+FROM node:20-alpine AS builder
+
+WORKDIR /app
+
+# Copier package.json et installer les dépendances
+COPY backend/package*.json ./
+RUN npm ci
+
+# Copier le code source
+COPY backend/ ./
+
+# Build TypeScript
+RUN npm run build
+
+# Image de production
+FROM node:20-alpine
+
+WORKDIR /app
+
+# Copier package.json et installer uniquement les dépendances de production
+COPY backend/package*.json ./
+RUN npm ci --only=production
+
+# Copier le code compilé depuis le builder
+COPY --from=builder /app/dist ./dist
+
+# Exposer le port
+EXPOSE 4000
+
+# Variables d'environnement par défaut
+ENV NODE_ENV=production
+ENV PORT=4000
+
+# Démarrer l'application
+CMD ["node", "dist/server.js"]
