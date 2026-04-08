@@ -3,7 +3,8 @@
 
 PORT=4000
 NODE_ENV=production
-CORS_ORIGIN=https://frontend-lyart-psi-89.vercel.app
+# CORS_ORIGIN n'est plus nécessaire car configuré directement dans le code
+# Domaines autorisés: sopi-immobiliere.com, www.sopi-immobiliere.com, localhost:3000
 
 # ⚠️ IMPORTANT : Remplacez les valeurs ci-dessous par vos vraies clés
 
