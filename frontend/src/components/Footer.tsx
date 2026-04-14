@@ -120,6 +120,10 @@ const Footer: React.FC = () => {
           <p>
             © 2026 SOPI. Tous droits réservés.
           </p>
+          <p className="text-white/30 text-xs">
+            v{typeof __BUILD_INFO__ !== 'undefined' ? __BUILD_INFO__.version : '1.0.0'} • 
+            {typeof __BUILD_INFO__ !== 'undefined' ? __BUILD_INFO__.commit : 'dev'}
+          </p>
         </div>
 
       </div>
