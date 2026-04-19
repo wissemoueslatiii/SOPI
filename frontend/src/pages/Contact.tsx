@@ -4,7 +4,7 @@ import { Phone, Mail, MapPin, MessageCircle, Send, CheckCircle } from 'lucide-re
 
 const WHATSAPP_NUMBER = '21627604160';
 const PHONE_E164 = '+21627604160';
-const EMAIL = 'contact@sopi-immobiliere.com';
+const EMAIL = 'sopi.immobilier@gmail.com';
 const mapLink = 'https://maps.app.goo.gl/FaJ7vG5MzWWwHTUZA?g_st=ic';
 
 // EmailJS
