@@ -15,7 +15,7 @@ const Home: React.FC = () => {
 <section className="relative h-screen min-h-[700px] flex items-center overflow-hidden">
   <div className="absolute inset-0 z-0">
     <img 
-      src="https://pucnaybubqtzroujukeb.supabase.co/storage/v1/object/public/apartments/oussama-2/facade.jpg"
+      src="https://pucnaybubqtzroujukeb.supabase.co/storage/v1/object/public/apartments/oussama-3/facade2oussama3.jpeg"
       alt="Résidence Oussama 2 - Vue extérieure" 
       className="w-full h-full object-cover scale-105 animate-[pulse_15s_ease-in-out_infinite]"
     />
@@ -56,11 +56,11 @@ const Home: React.FC = () => {
               <div className="relative">
                  <div className="grid grid-cols-2 gap-4">
                     <img 
-                      src="https://pucnaybubqtzroujukeb.supabase.co/storage/v1/object/public/apartments/oussama-2/facade4.jpg"
+                      src="https://pucnaybubqtzroujukeb.supabase.co/storage/v1/object/public/apartments/oussama-3/piscine3oussama3.jpeg"
                       className="rounded-3xl shadow-xl w-full h-80 object-cover"
                     />
                     <img 
-                      src="https://pucnaybubqtzroujukeb.supabase.co/storage/v1/object/public/apartments/oussama-2/piscine1.jpg"
+                      src="https://pucnaybubqtzroujukeb.supabase.co/storage/v1/object/public/apartments/oussama-3/piscine2oussama3.jpeg"
                       className="rounded-3xl shadow-xl w-full h-80 object-cover mt-12"
                     />
                  </div>
@@ -211,7 +211,7 @@ const Home: React.FC = () => {
 
 
       {/* Oussama II (featured) */}
-      <article className="bg-white rounded-3xl border-2 border-sopi-teal shadow-xl overflow-hidden scale-[1.02]">
+      <article className="bg-white rounded-3xl border border-slate-100 shadow-lg hover:shadow-xl transition-all hover:-translate-y-1 overflow-hidden">
 
         <div className="h-56">
           <img
@@ -225,7 +225,7 @@ const Home: React.FC = () => {
 
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-sopi-teal/10 text-sopi-teal text-xs font-bold uppercase tracking-widest">
             <Sparkles size={16} />
-            En cours
+            Disponibilités limitées
           </div>
 
           <h3 className="text-2xl font-serif font-bold text-slate-900 mt-4">
@@ -233,8 +233,7 @@ const Home: React.FC = () => {
           </h3>
 
           <p className="text-slate-600 mt-3 leading-relaxed">
-            Résidence en cours de réalisation, située dans la continuité de la résidence Oussama I,
-            avec des appartements modernes et des prestations de qualité.
+            Les disponibilités deviennent limitées pour la Résidence Oussama II. Découvrez les derniers appartements disponibles, conçus avec des prestations de qualité.
           </p>
 
           <div className="mt-5 space-y-2">
@@ -261,31 +260,23 @@ const Home: React.FC = () => {
 
 
       {/* Oussama III */}
-      <article className="bg-white rounded-3xl border border-slate-100 shadow-lg overflow-hidden">
+      <article className="bg-white rounded-3xl border-2 border-sopi-teal shadow-xl overflow-hidden scale-[1.02]">
 
-        <div className="relative h-56 overflow-hidden">
+        <div className="h-56">
 
           <img
-            src="https://pucnaybubqtzroujukeb.supabase.co/storage/v1/object/public/apartments/oussama-2/facade.jpg"
+            src="https://pucnaybubqtzroujukeb.supabase.co/storage/v1/object/public/apartments/oussama-3/facade2oussama3.jpeg"
             alt="Résidence Oussama III"
-            className="w-full h-full object-cover blur-[2px] scale-105"
+            className="w-full h-full object-cover"
           />
-
-          <div className="absolute inset-0 bg-slate-900/30 flex items-center justify-center">
-            <div className="text-center text-white">
-              <p className="text-[11px] uppercase tracking-[0.25em] font-semibold opacity-90">
-                Projet en préparation
-              </p>
-            </div>
-          </div>
 
         </div>
 
         <div className="p-8">
 
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-100 text-amber-800 text-xs font-bold uppercase tracking-widest">
-            <Clock size={16} />
-            À venir
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-sopi-teal/10 text-sopi-teal text-xs font-bold uppercase tracking-widest">
+            <Sparkles size={16} />
+            En cours
           </div>
 
           <h3 className="text-2xl font-serif font-bold text-slate-900 mt-4">
@@ -293,7 +284,7 @@ const Home: React.FC = () => {
           </h3>
 
           <p className="text-slate-600 mt-3 leading-relaxed">
-            Prochain projet en cours de conception, dans la continuité du même ensemble résidentiel.
+            Résidence en cours de réalisation, dans la continuité du même ensemble résidentiel avec des prestations haut de gamme.
           </p>
 
           <div className="mt-5 space-y-2">
@@ -305,6 +296,15 @@ const Home: React.FC = () => {
               <MapPin size={18} className="text-sopi-teal" />
               La Nouvelle Soukra
             </div>
+          </div>
+
+          <div className="mt-6">
+            <Link
+              to="/appartements?projet=oussama-3"
+              className="bg-sopi-teal text-white px-6 py-3 rounded-2xl font-bold hover:bg-sopi-teal-dark transition-all w-full text-center block"
+            >
+              Voir les disponibilités
+            </Link>
           </div>
 
         </div>

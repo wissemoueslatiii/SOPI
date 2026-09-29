@@ -13,6 +13,7 @@ import {
   X,
   ChevronLeft,
   ChevronRight,
+  Gamepad2,
 } from 'lucide-react';
 
 import { PROJECT_INFO } from '../data';
@@ -21,29 +22,29 @@ type GalleryItem = { src: string; alt: string; tag: string };
 
 const NosProjets: React.FC = () => {
   const mapLink = 'https://maps.app.goo.gl/AjhE7eEizaKe4QBZ8?g_st=ic';
-  const apartmentsLink = '/appartements?projet=oussama-2';
+  const apartmentsLink = '/appartements?projet=oussama-3';
 
-  const photoBase =
+  const photoBaseOussama2 =
     'https://pucnaybubqtzroujukeb.supabase.co/storage/v1/object/public/apartments/oussama-2';
 
-  const gallery: GalleryItem[] = useMemo(
+  const galleryOussama2: GalleryItem[] = useMemo(
     () => [
-      { src: `${photoBase}/facade.jpg`, alt: 'Façade - Résidence Oussama 2', tag: 'Entrée principale' },
-      { src: `${photoBase}/globale.jpg`, alt: 'Accueil - Résidence Oussama 2', tag: 'Vue d’ensemble' },
-      { src: `${photoBase}/facade3.jpg`, alt: 'Intérieur - Résidence Oussama 2', tag: 'Façade de la résidence' },
-      { src: `${photoBase}/piscine.jpg`, alt: 'Piscine - Résidence Oussama 2', tag: 'Piscine' },
-            { src: `${photoBase}/accueil.jpg`, alt: 'Intérieur - Résidence Oussama 2', tag: 'Hall d’entrée' },
+      { src: `${photoBaseOussama2}/facade.jpg`, alt: 'Façade - Résidence Oussama 2', tag: 'Entrée principale' },
+      { src: `${photoBaseOussama2}/globale.jpg`, alt: 'Accueil - Résidence Oussama 2', tag: 'Vue d’ensemble' },
+      { src: `${photoBaseOussama2}/facade3.jpg`, alt: 'Intérieur - Résidence Oussama 2', tag: 'Façade de la résidence' },
+      { src: `${photoBaseOussama2}/piscine.jpg`, alt: 'Piscine - Résidence Oussama 2', tag: 'Piscine' },
+            { src: `${photoBaseOussama2}/accueil.jpg`, alt: 'Intérieur - Résidence Oussama 2', tag: 'Hall d’entrée' },
 
-      { src: `${photoBase}/salledesport.jpeg`, alt: 'Salle de sport - Résidence Oussama 2', tag: 'Salle de sport' },
-      { src: `${photoBase}/exterieur.jpg`, alt: 'Intérieur - Résidence Oussama 2', tag: 'Espaces extérieurs' },
-            { src: `${photoBase}/piscine1.jpg`, alt: 'Jardins - Résidence Oussama 2', tag: 'Espaces extérieurs' },
+      { src: `${photoBaseOussama2}/salledesport.jpeg`, alt: 'Salle de sport - Résidence Oussama 2', tag: 'Salle de sport' },
+      { src: `${photoBaseOussama2}/exterieur.jpg`, alt: 'Intérieur - Résidence Oussama 2', tag: 'Espaces extérieurs' },
+            { src: `${photoBaseOussama2}/piscine1.jpg`, alt: 'Jardins - Résidence Oussama 2', tag: 'Espaces extérieurs' },
 
-      { src: `${photoBase}/salledesport2.jpeg`, alt: 'Intérieur - Résidence Oussama 2', tag: 'Salle de sport' },
-      { src: `${photoBase}/accueil.jpg`, alt: 'Intérieur - Résidence Oussama 2', tag: 'Hall d’entrée' },
-      { src: `${photoBase}/interieur.jpg`, alt: 'Intérieur - Résidence Oussama 2', tag: 'Entrée du bloc' },
-      { src: `${photoBase}/entree.jpeg`, alt: 'Intérieur - Résidence Oussama 2', tag: 'Hall d’entrée' },
+      { src: `${photoBaseOussama2}/salledesport2.jpeg`, alt: 'Intérieur - Résidence Oussama 2', tag: 'Salle de sport' },
+      { src: `${photoBaseOussama2}/accueil.jpg`, alt: 'Intérieur - Résidence Oussama 2', tag: 'Hall d’entrée' },
+      { src: `${photoBaseOussama2}/interieur.jpg`, alt: 'Intérieur - Résidence Oussama 2', tag: 'Entrée du bloc' },
+      { src: `${photoBaseOussama2}/entree.jpeg`, alt: 'Intérieur - Résidence Oussama 2', tag: 'Hall d’entrée' },
     ],
-    [photoBase]
+    [photoBaseOussama2]
   );
 
   const galleryOussama1: GalleryItem[] = useMemo(
@@ -71,17 +72,33 @@ const NosProjets: React.FC = () => {
     ],
     []
   );
+  const photoBaseOussama3 =
+    'https://pucnaybubqtzroujukeb.supabase.co/storage/v1/object/public/apartments/oussama-3';
+
+    const galleryOussama3: GalleryItem[] = useMemo(
+    () => [
+      { src: `${photoBaseOussama3}/facade2oussama3.jpeg`, alt: 'Façade - Résidence Oussama 3', tag: 'Entrée principale' },
+      { src: `${photoBaseOussama3}/globaloussama3.jpeg`, alt: 'Accueil - Résidence Oussama 3', tag: 'Vue d’ensemble' },
+      { src: `${photoBaseOussama3}/facade3oussama3.jpeg`, alt: 'Intérieur - Résidence Oussama 3', tag: 'Façade de la résidence' },
+      { src: `${photoBaseOussama3}/piscineoussama3.jpeg`, alt: 'Piscine - Résidence Oussama 3', tag: 'Piscine' },
+            { src: `${photoBaseOussama3}/piscine3oussama3.jpeg`, alt: 'Intérieur - Résidence Oussama 3', tag: 'Ambiance nocturne' },
+
+      { src: `${photoBaseOussama3}/piscine2oussama3.jpeg`, alt: 'Piscine - Résidence Oussama 3', tag: 'Jardin & espaces extérieurs' },
+   ],
+    [photoBaseOussama3]
+  );
 
   const features = [
     { icon: <Trees size={28} />, title: 'Piscine centrale' },
     { icon: <Shield size={28} />, title: 'Sécurité 24/7' },
     { icon: <Car size={28} />, title: 'Parking sous-sol' },
     { icon: <Dumbbell size={28} />, title: 'Salle de sport' },
+    { icon: <Gamepad2 size={28} />, title: 'Salle de jeux' },
   ];
 
   const [lightboxOpen, setLightboxOpen] = useState(false);
   const [activeIndex, setActiveIndex] = useState(0);
-  const [activeGallery, setActiveGallery] = useState<GalleryItem[]>(gallery);
+  const [activeGallery, setActiveGallery] = useState<GalleryItem[]>(galleryOussama3);
 
   const openLightbox = (galleryItems: GalleryItem[], index: number) => {
     setActiveGallery(galleryItems);
@@ -131,7 +148,7 @@ const NosProjets: React.FC = () => {
               </h1>
 
               <p className="text-slate-600 text-lg leading-relaxed mb-6">
-Résidence Oussama II propose des appartements modernes dans un environnement sécurisé, pensé pour le confort au quotidien et la qualité de vie.
+Résidence Oussama III propose des appartements modernes dans un environnement sécurisé, pensé pour le confort au quotidien et la qualité de vie.
               </p>
 
               <div className="bg-white border border-slate-200 rounded-3xl p-6 md:p-8 shadow-sm">
@@ -174,13 +191,13 @@ Résidence Oussama II propose des appartements modernes dans un environnement s�
 
             <button
               type="button"
-              onClick={() => openLightbox(gallery, 0)}
+              onClick={() => openLightbox(galleryOussama3, 0)}
               className="aspect-[4/3] rounded-[3rem] overflow-hidden shadow-2xl relative border-8 border-white text-left"
               aria-label="Ouvrir la galerie"
             >
               <img
-                src={gallery[0].src}
-                alt={gallery[0].alt}
+                src={galleryOussama3[0].src}
+                alt={galleryOussama3[0].alt}
                 className="w-full h-full object-cover"
               />
               <div className="absolute inset-0 bg-sopi-teal/10" />
@@ -198,7 +215,7 @@ Résidence Oussama II propose des appartements modernes dans un environnement s�
           <div className="text-center mb-14">
             <span className="text-sopi-teal font-bold uppercase tracking-widest text-xs">Galerie</span>
             <h2 className="text-3xl md:text-5xl font-serif font-bold text-slate-900 mt-3">
-              Découvrez la Résidence Oussama II
+              Découvrez la Résidence Oussama III
             </h2>
             <p className="text-slate-500 max-w-2xl mx-auto mt-4">
               Accueil, jardins, piscine et espaces de vie.
@@ -208,28 +225,28 @@ Résidence Oussama II propose des appartements modernes dans un environnement s�
           <div className="grid grid-cols-1 md:grid-cols-12 gap-6">
             <button
               type="button"
-              onClick={() => openLightbox(gallery, 1)}
+              onClick={() => openLightbox(galleryOussama3, 1)}
               className="md:col-span-7 rounded-[2.5rem] overflow-hidden border border-slate-200 shadow-sm group relative text-left"
             >
               <img
-                src={gallery[1].src}
-                alt={gallery[1].alt}
+                src={galleryOussama3[1].src}
+                alt={galleryOussama3[1].alt}
                 className="w-full h-[420px] object-cover group-hover:scale-[1.02] transition-transform duration-500"
                 loading="lazy"
               />
               <div className="absolute top-5 left-5 bg-white/90 backdrop-blur px-4 py-2 rounded-full text-xs font-bold text-sopi-teal border border-white/50">
-                {gallery[1].tag}
+                {galleryOussama3[1].tag}
               </div>
             </button>
 
             <div className="md:col-span-5 grid grid-cols-2 gap-6">
-              {gallery.slice(2, 6).map((img, i) => {
+              {galleryOussama3.slice(2, 6).map((img, i) => {
                 const index = i + 2;
                 return (
                   <button
                     key={img.src}
                     type="button"
-                    onClick={() => openLightbox(gallery, index)}
+                    onClick={() => openLightbox(galleryOussama3, index)}
                     className="rounded-3xl overflow-hidden border border-slate-200 shadow-sm group relative text-left"
                   >
                     <img
@@ -272,7 +289,7 @@ Résidence Oussama II propose des appartements modernes dans un environnement s�
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
             {features.map((f, i) => (
               <div
                 key={i}
@@ -438,49 +455,73 @@ Résidence Oussama II propose des appartements modernes dans un environnement s�
               </div>
             </article>
 
-            {/* OUSSAMA III */}
+            {/* OUSSAMA II */}
             <article className="group overflow-hidden rounded-[2.5rem] border border-slate-200 bg-white shadow-[0_20px_60px_rgba(0,0,0,0.06)] transition hover:-translate-y-1 hover:shadow-[0_25px_70px_rgba(0,0,0,0.10)]">
               <div className="relative h-64 overflow-hidden">
                 <img
-                  src="https://pucnaybubqtzroujukeb.supabase.co/storage/v1/object/public/apartments/oussama-2/facade.jpg"
-                  alt="Résidence Oussama III"
-                  className="w-full h-full object-cover blur-[2px] scale-105"
+                  src={galleryOussama2[0].src}
+                  alt={galleryOussama2[0].alt}
+                  className="w-full h-full object-cover transition duration-700 group-hover:scale-[1.04]"
                 />
 
-                <div className="absolute inset-0 bg-slate-900/30 flex items-center justify-center">
-                  <div className="text-center text-white">
-                    <p className="text-[11px] uppercase tracking-[0.25em] font-semibold opacity-90">
-                      Concept architectural
-                    </p>
-                    <p className="mt-2 text-lg font-serif font-bold">
-                      Projet en préparation
-                    </p>
-                  </div>
-                </div>
-
                 <div className="absolute top-5 left-5 bg-white/90 px-3 py-2 rounded-full text-[11px] font-bold uppercase tracking-widest text-slate-700">
-                  À venir
+                  En cours
                 </div>
               </div>
 
               <div className="p-8">
                 <h3 className="text-3xl font-serif font-bold text-slate-900">
-                  Résidence Oussama III
+                  Résidence Oussama II
                 </h3>
 
-                <p className="text-slate-600 mt-3 leading-relaxed">
-                  Prochain projet de la série Oussama, actuellement en phase de conception.
+                <p className="mt-4 text-slate-600 leading-relaxed">
+                  Programme en cours de réalisation, avec encore quelques appartements disponibles.
                 </p>
+
               <div className="mt-5 space-y-2">
                 <div className="flex items-center gap-2 text-slate-600 font-semibold">
                   <Calendar size={18} className="text-sopi-teal" />
-                  Livraison prévue : <span className="text-slate-900 font-bold">2029</span>
+                  Livraison prévue : <span className="text-slate-900 font-bold">2028</span>
                 </div>
                 <div className="flex items-center gap-2 text-slate-600 font-semibold">
                   <MapPin size={18} className="text-sopi-teal" />
                   La Nouvelle Soukra
                 </div>
               </div>
+
+                <div className="mt-6 grid grid-cols-3 gap-3">
+                  {galleryOussama2.slice(0, 3).map((img, index) => (
+                    <button
+                      key={img.src}
+                      type="button"
+                      onClick={() => openLightbox(galleryOussama2, index)}
+                      className="overflow-hidden rounded-xl border border-slate-200"
+                    >
+                      <img
+                        src={img.src}
+                        alt={img.alt}
+                        className="h-24 w-full object-cover hover:scale-[1.03] transition-transform duration-500"
+                      />
+                    </button>
+                  ))}
+                </div>
+
+                <button
+                  type="button"
+                  onClick={() => openLightbox(galleryOussama2, 0)}
+                  className="mt-4 text-sm font-bold text-sopi-teal border-b border-sopi-teal pb-1"
+                >
+                  Voir toutes les photos
+                </button>
+
+                <div className="mt-6">
+                  <Link
+                    to="/appartements?projet=oussama-2"
+                    className="inline-flex items-center justify-center rounded-xl bg-sopi-teal text-white px-6 py-3 font-bold hover:opacity-90"
+                  >
+                    Voir les appartements
+                  </Link>
+                </div>
               </div>
             </article>
           </div>

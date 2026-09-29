@@ -35,4 +35,4 @@ export interface ProjectInfo {
   panoramaUrl?: string;
 }
 
-export type ProjectId = "oussama-1" | "oussama-2";
+export type ProjectId = "oussama-1" | "oussama-2" | "oussama-3";

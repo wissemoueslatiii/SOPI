@@ -255,6 +255,7 @@ const ApartmentsList: React.FC = () => {
                 <option value="all">Tous les projets</option>
                 <option value="oussama-1">Oussama I</option>
                 <option value="oussama-2">Oussama II</option>
+                <option value="oussama-3">Oussama III</option>
               </select>
             </div>
 
